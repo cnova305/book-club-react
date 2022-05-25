@@ -1,0 +1,78 @@
+.signUpContentContainer {
+    width: 70%;
+    height: 70%;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: row;
+}
+
+.signUpFormContainer {
+    width: 50%;
+    height: 100%;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signUpFormContainer form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    width: 80%;
+}
+
+.signUpFormInputSmallContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.signUpFormInputSmall {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 47.5%;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}
+
+.signUpFormInputSmall::placeholder {
+    color: #00BAFF;
+}
+
+.signUpFormInputBig {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 100%;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}
+
+.signUpFormInputBig::placeholder {
+    color: #00BAFF;
+}
+
+.signUpFormButton {
+    border: none;
+    outline: none;
+    background: #ffffff;
+    color: #00BAFF;
+    padding: 1rem 0;
+    border-radius: 5px;
+}
+
+.authImageContainer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.authImageContainer img {
+    width: 75%;
+}
