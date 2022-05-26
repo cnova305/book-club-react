@@ -1,10 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './Home.css'
 
 import homeImage from '../../assets/Home.svg'
 
 const Home = () => {
+
+    // Setting Up The Navigation Function
+    let navigator = useNavigate()
+
   return (
       <>
         <div className='pageContainer'>
@@ -15,8 +20,8 @@ const Home = () => {
                 <div className='homeTitleContainer'>
                     <h1>Welcome To Avid Readers Book Club</h1>
                     <div className='homeButtonsContainer'>
-                        <button>Sign Up</button>
-                        <button>Sign Up</button>
+                        <button onClick={() =>navigator('sign-up')}>Sign Up</button>
+                        <button onClick={() =>navigator('sign-in')}>Sign In</button>
                     </div>
                 </div>
             </div>

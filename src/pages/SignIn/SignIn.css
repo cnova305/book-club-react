@@ -1,0 +1,78 @@
+.signInContentContainer {
+    width: 70%;
+    height: 70%;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: row;
+}
+
+.signInFormContainer {
+    width: 50%;
+    height: 100%;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signInFormContainer form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    width: 80%;
+}
+
+.signInFormInputSmallContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.signInFormInputSmall {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 47.5%;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}
+
+.signInFormInputSmall::placeholder {
+    color: #00BAFF;
+}
+
+.signInFormInputBig {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 100%;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}
+
+.signInFormInputBig::placeholder {
+    color: #00BAFF;
+}
+
+.signInFormButton {
+    border: none;
+    outline: none;
+    background: #ffffff;
+    color: #00BAFF;
+    padding: 1rem 0;
+    border-radius: 5px;
+}
+
+.authImageContainer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.authImageContainer img {
+    width: 75%;
+}

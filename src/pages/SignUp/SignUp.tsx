@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import './SignUp.css'
+import './SignUp.css';
 
-import authImage from '../../assets/Auth.svg'
+import authImage from '../../assets/Auth.svg';
+
+
+// Importing Firebase Functions
+import {auth, signIn, signUp} from '../../config/firebase';
+import { database } from '../../config/firebase';
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 
 
 
@@ -11,16 +18,11 @@ import authImage from '../../assets/Auth.svg'
 
 const SignUp = () => {
 
-    // Setting Up Input States
-    // const [firstname, setFirstname] = useState('')
-    // const [lastname, seLastname] = useState('')
-    // const [email, setEmail] = useState('')
-    // const [number, setNumber] = useState('')
-    // const [username, setUsername] = useState('')
-    // const [password, setPassword] = useState('')
-    // const [confirmpassword, setConfirmpassword] = useState('')
+    // Setting Up The Navigation Function
+    let navigator = useNavigate()
+
     //Setting Up Sign Up User
-    const [user, setUser] = useState({
+    const [userdata, setUserdata] = useState({
         firstname:'',
         lastname:'',
         email:'',
@@ -33,17 +35,24 @@ const SignUp = () => {
     // Setting User Update Function
 
     const updateUser = (e:React.ChangeEvent<HTMLInputElement>) => {
-        setUser({
-            ...user,
+        setUserdata({
+            ...userdata,
             [e.target.name]: e.target.value,
         })
     }
 
     // Submitting User Sign Up Form
 
-    const submitUser = (e:React.ChangeEvent<HTMLFormElement>) => {
+    const submitUser = async (e:React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log(user)
+        console.log(userdata)
+       const newUser =  await signUp(auth, userdata.email, userdata.password);
+       console.log(newUser.user.uid)
+        await setDoc(doc(database, "users", newUser.user.uid), {
+            ...userdata
+          });
+          navigator('/library')
+
     }
 
   return (
@@ -67,7 +76,7 @@ const SignUp = () => {
                     
                 </div>
                 <div className='authImageContainer'>
-                    <img src={authImage} alt='home' />
+                    <img src={authImage} alt='auth' />
                 </div>
             </div>
         </div>
