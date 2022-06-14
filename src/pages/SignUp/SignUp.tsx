@@ -46,11 +46,13 @@ const SignUp = () => {
     const submitUser = async (e:React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault()
         console.log(userdata)
+        // Creating User In Firebase
        const newUser =  await signUp(auth, userdata.email, userdata.password);
-       console.log(newUser.user.uid)
+       // Creating User In Firebase Users Collection
         await setDoc(doc(database, "users", newUser.user.uid), {
             ...userdata
           });
+          sessionStorage.setItem("bookclub_member_uid", JSON.stringify(newUser.user.uid))
           navigator('/library')
 
     }

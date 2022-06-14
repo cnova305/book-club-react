@@ -41,7 +41,7 @@ const SignIn = () => {
         signIn(auth, user.email, user.password)
             .then((userCredential) => {
                 const returning_user = userCredential.user;
-                console.log(returning_user)
+                sessionStorage.setItem("bookclub_member_uid", JSON.stringify(returning_user))
                 navigator('/library')
             })
             .catch((error) => {
