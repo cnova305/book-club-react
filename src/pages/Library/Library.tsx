@@ -5,13 +5,14 @@ import './Library.css';
 import { User } from '../../types/types'
 
 import { database } from '../../config/firebase';
-import { getFirestore, doc, getDoc, collection } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 
 const Library = () => {
 
     // Setting Up User State
 
     const [userdata, setUserdata] = useState<User>({
+        uid: '',
         firstname: '',
         lastname: '',
         email: '',
@@ -21,17 +22,19 @@ const Library = () => {
 
     const member_uid = sessionStorage.getItem('bookclub_member_uid') || ''
 
-    
     const userDoc = async () => {
-        const firestore = getFirestore();
-        const fetchUserDoc = doc(firestore, 'users', member_uid)
-        const activeuser = await getDoc(fetchUserDoc)
-        return activeuser.data();
+     const docSnap = await getDoc( doc(database, 'users', "H8krTvDr9lYoXonlnUOwHWeKo5z1"));
+     if (docSnap.exists()) {
+        console.log(docSnap.data())
+     } else {
+        console.log('nope')}
     }
 
     useEffect(() => {
         userDoc()
-    }, [] )
+        }, []);
+
+
 
     
   return (

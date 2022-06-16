@@ -6,7 +6,7 @@ import './SignIn.css';
 import authImage from '../../assets/Auth.svg';
 
 // Importing Firebase Functions
-import {auth, signIn} from '../../config/firebase';
+import {auth, firebaseSignIn} from '../../config/firebase';
 
 
 const SignIn = () => {
@@ -38,9 +38,10 @@ const SignIn = () => {
 
     const submitUser = (e:React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault()
-        signIn(auth, user.email, user.password)
+        firebaseSignIn(auth, user.email, user.password)
             .then((userCredential) => {
                 const returning_user = userCredential.user;
+                console.log(returning_user)
                 sessionStorage.setItem("bookclub_member_uid", JSON.stringify(returning_user))
                 navigator('/library')
             })

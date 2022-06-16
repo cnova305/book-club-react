@@ -7,7 +7,7 @@ import authImage from '../../assets/Auth.svg';
 
 
 // Importing Firebase Functions
-import {auth, signIn, signUp} from '../../config/firebase';
+import {auth, firebaseSignUp} from '../../config/firebase';
 import { database } from '../../config/firebase';
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 
@@ -47,8 +47,9 @@ const SignUp = () => {
         e.preventDefault()
         console.log(userdata)
         // Creating User In Firebase
-       const newUser =  await signUp(auth, userdata.email, userdata.password);
-       // Creating User In Firebase Users Collection
+       const newUser =  await firebaseSignUp(auth, userdata.email, userdata.password);
+       console.log(newUser.user.uid)
+    //    Creating User In Firebase Users Collection
         await setDoc(doc(database, "users", newUser.user.uid), {
             ...userdata
           });
