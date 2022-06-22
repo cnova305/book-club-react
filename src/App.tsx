@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 
 // Importing Pages
@@ -9,6 +9,12 @@ import SignIn from './pages/SignIn/SignIn';
 import Library from './pages/Library/Library';
 
 function App() {
+
+  const currentUser = false;
+
+  // const RequireAuth = ({children}) {
+  //   return currentUser ? (children) : <Navigate to='/sign-in' />
+  // }
   
   return (
     <div className="App">

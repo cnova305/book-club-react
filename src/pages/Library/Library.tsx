@@ -19,15 +19,17 @@ const Library = () => {
         number: '',
         username: '',
     })
-
-    const member_uid = sessionStorage.getItem('bookclub_member_uid') || ''
+    const member_uid = JSON.parse(sessionStorage.getItem('bookclub_member_uid') || '');
 
     const userDoc = async () => {
-     const docSnap = await getDoc( doc(database, 'users', "H8krTvDr9lYoXonlnUOwHWeKo5z1"));
+     const docSnap = await getDoc( doc(database, 'users', member_uid));
      if (docSnap.exists()) {
         console.log(docSnap.data())
+        const member = JSON.parse(JSON.stringify(docSnap.data()))
+        setUserdata(member)
      } else {
         console.log('nope')}
+        
     }
 
     useEffect(() => {
@@ -46,7 +48,7 @@ const Library = () => {
                         <div className='libraryProfileCardInfo'>
                             <div>
                                 <h1>
-                                    Super-Nova
+                                    {userdata.username}
                                 </h1>
                                 <p>Books Added: 5</p>
                             </div>
