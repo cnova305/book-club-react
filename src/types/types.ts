@@ -9,7 +9,9 @@ export interface User {
 }
 
 export interface Book {
-    uid: string;
     name: string;
     author: string;
+    genre: string;
+    user: User;
+    year: string;
 }

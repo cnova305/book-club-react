@@ -7,6 +7,9 @@ import Home from './pages/Home/Home';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 import Library from './pages/Library/Library';
+import Profile from './pages/Profile/Profile';
+import MyBooks from './pages/MyBooks/MyBooks';
+import AddBook from './pages/AddBook/AddBook';
 
 function App() {
 
@@ -19,15 +22,14 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <Home /> */}
-        {/* <SignUp /> */}
-        {/* <SignIn /> */}
-        {/* <Library /> */}
         <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/sign-in' element={<SignIn />} />
-        <Route path='/sign-up' element={<SignUp />} />
-        <Route path='/library' element={<Library />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/sign-in' element={<SignIn />} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/library' element={<Library />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/my-books' element={<MyBooks />}/>
+          <Route path='/add-books' element={<AddBook />}/>
         </Routes>
       </Router>
       
