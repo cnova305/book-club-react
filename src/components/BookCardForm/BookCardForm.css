@@ -1,0 +1,23 @@
+.bookcardForm {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.bookcardFormImage {
+    width: 40%;
+    height: 100%;
+    border: 1px solid red;
+}
+
+.bookcardFormDetails {
+    width: 60%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.bookcardFormDetails form {
+    display: flex;
+    flex-direction: column;
+}

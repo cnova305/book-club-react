@@ -1,8 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { Book } from '../../types/types';
 
-const BookCard = () => {
+import './BookCard.css'
+
+interface BookCardProps {
+  book: Book
+}
+
+const BookCard = ({
+  book,
+  ...props
+}:BookCardProps) => {
   return (
-    <div>BookCard</div>
+    <div>{book.title}</div>
   )
 }
 
