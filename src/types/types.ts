@@ -14,4 +14,5 @@ export interface Book {
     genre: string;
     user: User;
     year: string;
+    image: string;
 }

@@ -11,6 +11,10 @@
     border: 1px solid red;
 }
 
+.bookcardFormImage img {
+    width: 100%;
+}
+
 .bookcardFormDetails {
     width: 60%;
     height: 100%;
